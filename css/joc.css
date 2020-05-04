@@ -142,3 +142,12 @@ button {
     width: 20px;
     margin-top: 10px;
 }
+
+.central {
+    display: grid;
+    grid-template-rows: 20% 60% 20%;
+}
+
+.jugadores {
+    margin-top: 15%;
+}

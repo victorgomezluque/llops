@@ -20,7 +20,11 @@ if ($loginado) {
 
         <div class="servers">
             <div class="servidor">
-                <h3 class="Color1Log"><a href="joc.html">Servidor España</a></h3> <button>-</button>
+                <h3 class="Color1Log">
+                    <form action="meterteenpartida.php" method="POST">
+                        <input type="submit" value="SERVIDOR ESPAÑA" class="enviarSubmit">
+                    </form>
+                </h3>
             </div>
             <div class="servidor">
                 <h3 class="Color1Log"><a href="joc.html">Servidor Lituania</a></h3> <button>-</button>
