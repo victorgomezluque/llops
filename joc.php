@@ -12,15 +12,46 @@
     <div class="general">
 
         <div class="jugadores">
-            <div class="jugadorPrincipal jugador "> <img src="img/sicario.png" alt="sicario"></div>
-            <div class="jugador2 jugador  "><img src="img/guardia.pbg.jpg" alt="guardia"></div>
-            <div class="jugador3 jugador "><img src="img/yonki.png" alt="yonki"> </div>
-            <div class="jugador4 jugador"><img src="img/ciudadano.png" alt="ciudadano"> </div>
-            <div class="jugador5 jugador"><img src="img/ciudadano.png" alt="ciudadano"> </div>
-            <div class="jugador6 jugador"><img src="img/JuAN-cARLOS.jpg" alt="juanCarlos"> </div>
-            <div class="jugador11 jugador"><img src="img/camello.png" alt="camello" onmouseover="setTimeout(flip, 1000);" id="muerto">
-            </div>
-            <div class="jugador12 jugador"><img src="img/ciudadano.png" alt="ciudadano"></div>
+            <div class="jugador7 jugador"><img src="img/camello.png" alt="camello" onmouseover="setTimeout(flip, 1000);" id="muerto"> </div>
+            <?php
+            $basededatos = "llops";
+            $connexio = mysqli_connect('localhost', 'root', '987654321', 'llops') or die("No s’ha trobat la BBDD");
+
+            mysqli_select_db($connexio, $basededatos) or die("No se encuentra la tabla");
+            mysqli_set_charset($connexio, "utf8");
+
+            $chat = "SELECT * FROM `partida` ";
+            $resultat = mysqli_query($connexio, $chat) or die("Algo ha ido mal en la consulta a la base de datos");
+            while ($row = mysqli_fetch_array($resultat)) {
+                switch ($row["rol"]) {
+                    case "guardia":
+            ?>
+
+                        <p class="jugador" id="<?php echo "jugador" ?><?php echo  $row["idjugador"]  ?>"><img src="/img/guardia.pbg.jpg" alt="ciudadano"></p>
+                    <?php break;
+                    case "cupido":
+                    ?>
+                        <p class="jugador" id="<?php echo "jugador" ?><?php echo  $row["idjugador"]  ?>"><img src="/img/yonki.png" alt="ciudadano"></p>
+                    <?php break;
+                    case "rey":
+                    ?>
+                        <p class="jugador" id="<?php echo "jugador" ?><?php echo  $row["idjugador"]  ?>"><img src="/img/JuAN-cARLOS.jpg" alt="ciudadano"></p>
+                    <?php break;
+                    case "ciudadano":
+                    ?>
+                        <p class="jugador" id="<?php echo "jugador" ?><?php echo  $row["idjugador"]  ?>"><img src="/img/ciudadano.png" alt="ciudadano"></p>
+                    <?php break;
+                    case "camello":
+                    ?>
+                        <p class="jugador" id="<?php echo "jugador" ?><?php echo  $row["idjugador"]  ?>"><img src="/img/camello.png" alt="ciudadano"></p>
+                        <?php break;
+
+                        ?>
+            <?php
+                }
+            }
+            mysqli_close($connexio);
+            ?>
         </div>
 
         <div class="chat" id="chat">
@@ -38,7 +69,7 @@
                 while ($row = mysqli_fetch_array($resultat)) {
 
                 ?>
-                    <?php if ($row["idusername"]==1) {
+                    <?php if ($row["idusername"] == 1) {
 
                     ?>
 

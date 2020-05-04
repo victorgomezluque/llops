@@ -18,11 +18,8 @@ body {
 /* contenedor general de toda la pagina */
 
 .general {
-    display: grid;
-    grid-template-columns: repeat(20, 1fr);
-    grid-template-rows: repeat(20, 1fr);
-    grid-column-gap: 0px;
-    grid-row-gap: 0px;
+    display: flex;
+    flex-wrap: nowrap;
     height: 100%;
     width: 100%;
     overflow: hidden;
@@ -35,65 +32,14 @@ body {
 /* contenedor de los jugadores */
 
 .jugadores {
-    grid-area: 3 / 2 / 19 / 15;
     display: grid;
-    grid-template-columns: repeat(13, 1fr);
-    grid-template-rows: repeat(17, 1fr);
-    grid-column-gap: 0px;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 
 .jugador>img {
-    width: 100%;
+    width: 20%;
     border-radius: 50%;
     border: solid 3px white;
-}
-
-.jugadorPrincipal {
-    grid-area: 14 / 7 / 17 / 8;
-}
-
-.jugador2 {
-    grid-area: 12 / 5 / 15 / 6;
-}
-
-.jugador3 {
-    grid-area: 10 / 3 / 13 / 4;
-}
-
-.jugador4 {
-    grid-area: 8 / 1 / 11 / 2;
-}
-
-.jugador5 {
-    grid-area: 6 / 3 / 9 / 4;
-}
-
-.jugador6 {
-    grid-area: 4 / 5 / 7 / 6;
-}
-
-.jugador7 {
-    grid-area: 2 / 7 / 5 / 8;
-}
-
-.jugador8 {
-    grid-area: 4 / 9 / 7 / 10;
-}
-
-.jugador9 {
-    grid-area: 6 / 11 / 9 / 12;
-}
-
-.jugador10 {
-    grid-area: 10 / 11 / 13 / 12;
-}
-
-.jugador11 {
-    grid-area: 12 / 9 / 15 / 10;
-}
-
-.jugador12 {
-    grid-area: 8 / 13 / 11 / 14;
 }
 
 .salir {
